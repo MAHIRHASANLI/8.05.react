@@ -1,0 +1,25 @@
+body{
+}
+.container{
+    margin:0px auto;
+    
+}
+.product{
+    display: flex;
+    justify-content:space-between;
+    align-items:center
+}
+/* .inputProduct{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-direction: column;
+} */
+.active{
+background-color:blue;
+color:white;
+border:2px solid black;
+}
+.count{
+    color:blue;
+}
