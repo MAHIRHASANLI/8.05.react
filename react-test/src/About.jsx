@@ -1,12 +1,12 @@
 import { useState } from "react";
-import {data} from "./Data";
+import {datas} from "./Data";
 import { v4 as uuidv4 } from 'uuid';
 const About = ()=>{
-    let [products,setProducts]=useState(data)
+    let [products,setProducts]=useState(datas)
     let [newProducts, setNewProducts] = useState({name:"", price:""})
     function handleSearch(e){
         if(e.target.value.trim()==""){
-          setProducts(data)  
+          setProducts(datas)  
         }
           else{
             let aboutproduct = products.filter((product)=>
@@ -37,6 +37,7 @@ const About = ()=>{
     //  let filterProduct=products.filter((product)=>product.id!==id)
     //  setProducts(filterProduct)
     }
+    let inputValue
     function handleSubmit(e){
 
       e.preventDefault()
@@ -45,19 +46,16 @@ const About = ()=>{
     setProducts([...products,newProducts]);
     setNewProducts({name:'',price:''});
       
-    }
+    console.log(inputValue);
+  }
     function handleAdd(e){
-if (e.target.newProducts.length < 6  || newProducts.price<1) {
-console.log("newProducts");
-}
-else{
-  // let aa=e.target.value<5?console.log(e.target.value) :console.log("kicikdir");
+  inputValue=e.target.value
   setNewProducts({...newProducts,[e.target.name]:e.target.value})
 
-}
+// }
     }
    function handleClear(){
-    products.splice(0, products.length);
+    products.splice(0, products.length+1);
     setProducts(products)
    }
     return(
